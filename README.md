@@ -30,3 +30,24 @@ that draws the image. If not using the default name, set the rendering function.
 
     set_renderer(my_render)
 
+# Motivation
+
+In my opinion, the pygame module isn't easy to use for a beginner--one with only a
+rudimentary knowledge of programming concepts. To run the Quick Start programs from
+the pygame.org website, one must know about:
+
+* tuples
+* arrays
+* objects and classes
+* variables
+* strings and integers
+* Booleans
+* Loops
+
+One can, of course, just copy-and-paste the sample code. But I would prefer that
+someone with only a couple of basic concepts can get started making simple animations.
+I think that with only knowledge of numbers, basic arithmetic,
+numeric variables, calling functions, and defining a function that takes and returns
+numeric values, one ought to be able make an animation such as a bouncing ball.
+With just a few more functions (and no extra programming concepts), keyboard events
+interactions can be added, allowing the learner to make a simple game.
