@@ -2,8 +2,9 @@ import sys
 import inspect
 import pygame
 
-__all__ = ['fill_screen', 'set_renderer']
-
+__all__ = ['fill_screen', 'set_renderer', 'window_size', 'tick_rate']
+_win_size = (640, 480)
+_tick_rate = 20
 
 def _get_renderer():
     main_module = sys.modules['__main__']
@@ -20,8 +21,18 @@ def set_renderer(fn):
     global _renderer
     _renderer = fn
 
+def window_size(width, height):
+    global _win_size
+    _win_size = (width, height)
+
+def tick_rate(rate):
+    global _tick_rate
+    _tick_rate = rate
+
+
+global _screen, _clock, _renderer
 pygame.init()
-_screen = pygame.display.set_mode((640, 480))
+_screen = pygame.display.set_mode(_win_size)
 _clock = pygame.time.Clock()
 _renderer = _get_renderer()
 
@@ -34,11 +45,8 @@ while _running:
 
     if callable(_renderer):
         _renderer()
-    else:
-        print("No render function was found.")
-        break
 
     pygame.display.flip()
-    _clock.tick(20)
+    _clock.tick(_tick_rate)
 
 pygame.quit()
